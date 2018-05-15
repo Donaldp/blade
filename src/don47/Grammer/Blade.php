@@ -21,6 +21,11 @@ class Blade extends Grammer implements Fluent
      * elseif
      * else
      * endif
+     *
+     * example:
+     * @if ($name == 'Donald')
+     *    <h1>Creator of modulusPHP</h1>
+     * @endif
      */
     $code = $this->translate('/\@\bif\b \((.*)\)/', function($match) {
       return "<?php if ($match[1]) : ?>";
@@ -41,6 +46,11 @@ class Blade extends Grammer implements Fluent
     /**
      * isset
      * endisset
+     *
+     * example:
+     * @isset($name)
+     *    <h1>Hey, {{ $name }}</h1>
+     * @endisset
      */
     $code = $this->translate('/\@\bisset\b\((.*)\)/', function($match) {
       return "<?php if (isset($match[1])) :?>";
@@ -56,6 +66,22 @@ class Blade extends Grammer implements Fluent
      * break - break;
      * default - default;
      * endswitch
+     *
+     * example:
+     * @switch($name)
+     *
+     *    @case('Donald')
+     *        <h1>Creator of modulusPHP</h1>
+     *        @break
+     *
+     *    @case('Drake')
+     *        <h1>Coolest artist</h1>
+     *        @break
+     *
+     *    @default
+     *        <h1>Nothing here</h1>
+     *
+     * @endswitch
      */
     $code = $this->translate('/\@\bswitch\b\((.*)\)/', function($match) {
       $this->$_SWITCH = true;
@@ -86,6 +112,11 @@ class Blade extends Grammer implements Fluent
     /**
      * for
      * endfor
+     *
+     * example:
+     * @for ($i = 0; $i < 10; $i++)
+     *    <h1>The current value is {{ $i }}</h1>
+     * @endfor
      */
     $code = $this->translate('/\@\bfor\b \((.*)\)/', function($match) {
       return "<?php for ($match[1]) : ?>";
@@ -98,6 +129,11 @@ class Blade extends Grammer implements Fluent
     /**
      * foreach
      * endforeach
+     *
+     * example:
+     * @foreach ($names as $name)
+     *    <h1>{{ $name }}</h1>
+     * @endforeach
      */
     $code = $this->translate('/\@\bforeach\b \((.*)\)/', function($match) {
       return "<?php foreach ($match[1]) : ?>";
@@ -111,6 +147,11 @@ class Blade extends Grammer implements Fluent
      * do
      * while
      * endwhile
+     *
+     * example:
+     * @while (true)
+     *    <p>I'm looping forever.</p>
+     * @endwhile
      */
     $code = $this->translate('/\@\bdo\b (.*)/', function($match) {
       return "<?php do $match[1]; ?>";

@@ -31,3 +31,29 @@ return [
 
 ];
 ```
+
+## Examples
+
+> if statement
+
+```
+@if ($name == 'Donald')
+  <h1>Creator of modulusPHP</h1>
+@endif
+```
+
+> isset
+
+```
+@isset($creator)
+  <h1>The creator of modulusPHP is {{ $creator }}</h1>
+@endisset
+```
+
+equivalent to:
+
+```
+<?php if (isset($creator)) : ?>
+  <h1>The creator of modulusPHP is <?php echo $creator; ?></h1>
+<?php endif ; >
+```
