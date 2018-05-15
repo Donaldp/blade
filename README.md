@@ -55,5 +55,5 @@ equivalent to:
 ```
 <?php if (isset($creator)) : ?>
   <h1>The creator of modulusPHP is <?php echo $creator; ?></h1>
-<?php endif ; >
+<?php endif ; ?>
 ```
