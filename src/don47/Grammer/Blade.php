@@ -5,7 +5,7 @@ namespace Don47\Grammer;
 use App\Touch\Fluent;
 use App\Touch\Grammer;
 
-class ControlStructure extends Grammer implements Fluent
+class Blade extends Grammer implements Fluent
 {
   /**
    * (incomeplete)
