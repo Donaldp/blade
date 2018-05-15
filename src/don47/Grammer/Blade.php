@@ -107,6 +107,30 @@ class Blade extends Grammer implements Fluent
       return "<?php endforeach; ?>";
     });
 
+    /**
+     * do
+     * while
+     * endwhile
+     */
+    $code = $this->translate('/\@\bdo\b (.*)/', function($match) {
+      return "<?php do $match[1]; ?>";
+    });
+
+    $code = $this->translate('/\@\bwhile \((.*)\)/', function($match) {
+      return "<?php while ($match[1]): ?>";
+    });
+
+    $code = $this->translate('/\@\bendwhile\b/', function($match) {
+      return "<?php endwhile ; ?>";
+    });
+
+    /**
+     * continue
+     */
+    $code = $this->translate('/\@\bcontinue\b/', function($match) {
+      return "<?php continue ; ?>";
+    });
+
     return $code;
   }
 }
