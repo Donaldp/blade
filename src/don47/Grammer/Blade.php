@@ -3,9 +3,9 @@
 namespace Don47\Grammer;
 
 use App\Touch\Fluent;
-use App\Touch\Grammer;
+use App\Touch\Grammar;
 
-class Blade extends Grammer implements Fluent
+class Blade extends Grammar implements Fluent
 {
   /**
    * (incomeplete)

@@ -12,7 +12,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Don47\\Grammer\\": "src/don47/Grammer"
+      "Don47\\Grammar\\": "src/don47/Grammar"
     }
   },
   "minimum-stability": "stable"

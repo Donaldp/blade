@@ -9,16 +9,16 @@ composer require don47/blade
 
 ## Setting up
 
-Open `app\Config\grammer.php` and add the following code inside `return`
+Open `app\Config\grammar.php` and add the following code inside `return`
 
 ```
 'don47-blade' => [
   'enabled' => true,
-  'class' => Don47\Grammer\Blade::class
+  'class' => Don47\Grammar\Blade::class
 ]
 ```
 
-Your `app\Config\grammer.php` file should now look like this:
+Your `app\Config\grammar.php` file should now look like this:
 ```
 <?php
 
@@ -26,7 +26,7 @@ return [
 
   'don47-blade' => [
     'enabled' => true,
-    'class' => Don47\Grammer\Blade::class
+    'class' => Don47\Grammar\Blade::class
   ]
 
 ];
