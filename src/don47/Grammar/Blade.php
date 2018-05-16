@@ -1,6 +1,6 @@
 <?php
 
-namespace Don47\Grammer;
+namespace Don47\Grammar;
 
 use App\Touch\Fluent;
 use App\Touch\Grammar;
