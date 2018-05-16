@@ -182,7 +182,7 @@ class Blade extends Grammer implements Fluent
      * @var(age = 20)
      */
     $code = $this->translate('/@\bvar\b(.*)/', function($match) {
-      return "<?php $$match[1];?>
+      return "<?php $$match[1];?>";
     });
 
     return $code;
