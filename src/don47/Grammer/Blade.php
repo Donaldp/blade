@@ -176,10 +176,10 @@ class Blade extends Grammer implements Fluent
      * var
      *
      * example 1:
-     * @var('age')
+     * @var(age)
      *
      * example 2:
-     * @var('age' = 20)
+     * @var(age = 20)
      */
     $code = $this->translate('/@\bvar\b(.*)/', function($match) {
       return "<?php $$match[1];?>
