@@ -2,8 +2,8 @@
 
 namespace Don47\Grammar;
 
-use App\Touch\Fluent;
-use App\Touch\Grammar;
+use Flashlight\Touch\Fluent;
+use Flashlight\Touch\Grammar;
 
 class Blade extends Grammar implements Fluent
 {

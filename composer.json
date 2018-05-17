@@ -10,6 +10,9 @@
       "email": "donaldpakkies@gmail.com"
     }
   ],
+  "require": {
+    "modulusphp/touch": "^1.0"
+  },
   "autoload": {
     "psr-4": {
       "Don47\\Grammar\\": "src/don47/Grammar"
