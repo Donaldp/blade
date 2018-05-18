@@ -2,8 +2,8 @@
 
 namespace Don47\Grammar;
 
-use Flashlight\Touch\Fluent;
-use Flashlight\Touch\Grammar;
+use ModulusPHP\Touch\Fluent;
+use ModulusPHP\Touch\Grammar;
 
 class Blade extends Grammar implements Fluent
 {
