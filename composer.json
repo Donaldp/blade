@@ -11,7 +11,7 @@
     }
   ],
   "require": {
-    "modulusphp/touch": "^1.0"
+    "modulusphp/touch": ">=1.0"
   },
   "autoload": {
     "psr-4": {
