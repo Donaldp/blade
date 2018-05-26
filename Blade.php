@@ -17,6 +17,21 @@ class Blade extends Grammar implements Fluent
     // Control Structures
 
     /**
+     * validation
+     */
+    $code = $this->translate('/\@\bvalidation\b\((.*)\)/', function($match) {
+      return '<?php if (isset($validation['.$match[1].'])) :?>';
+    });
+
+    $code = $this->translate('/\{\{ \bvalidation\b(.*) \}\}/', function($match) {
+      return '{{ % validation($validation, '.$match[1].') }}';
+    });
+
+    $code = $this->translate('/\@\bendvalidation\b/', function($match) {
+      return "<?php endif; ?>";
+    });
+
+    /**
      * if
      * elseif
      * else
