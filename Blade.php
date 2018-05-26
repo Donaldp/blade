@@ -14,8 +14,6 @@ class Blade extends Grammar implements Fluent
 
   public function handle()
   {
-    // Control Structures
-
     /**
      * validation
      */
@@ -31,6 +29,33 @@ class Blade extends Grammar implements Fluent
       return "<?php endif; ?>";
     });
 
+    /**
+     * templating
+     */
+    $code = $this->translate('/\@\bin\b\((.*)\)/', function($match) {
+      return "{% in($match[1]) %}";
+    });
+
+    $code = $this->translate('/\@\bendin\b/', function($match) {
+      return "{% endin %}";
+    });
+
+    $code = $this->translate('/\@\bpartial\b\((.*)\)/', function($match) {
+      return "{% extend($match[1]) %}";
+    });
+
+    $code = $this->translate('/\@\bpartials\b\((.*)\)/', function($match) {
+      return "{% partials($match[1]) %}";
+    });
+
+    $code = $this->translate('/\@\bextends\b\((.*)\)/', function($match) {
+      return "{% partials($match[1]) %}";
+    });
+
+    $code = $this->translate('/\@\bextend\b\((.*)\)/', function($match) {
+      return "{% extend($match[1]) %}";
+    });
+    
     /**
      * if
      * elseif
