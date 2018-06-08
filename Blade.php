@@ -15,21 +15,6 @@ class Blade extends Grammar implements Fluent
   public function handle()
   {
     /**
-     * validation
-     */
-    $code = $this->translate('/\@\bvalidation\b\((.*)\)/', function($match) {
-      return '<?php if (isset($validation['.$match[1].'])) :?>';
-    });
-
-    $code = $this->translate('/\{\{ \bvalidation\b(.*) \}\}/', function($match) {
-      return '{{ % validation($validation, '.$match[1].') }}';
-    });
-
-    $code = $this->translate('/\@\bendvalidation\b/', function($match) {
-      return "<?php endif; ?>";
-    });
-
-    /**
      * templating
      */
     $code = $this->translate('/\@\bin\b\((.*)\)/', function($match) {
@@ -37,6 +22,14 @@ class Blade extends Grammar implements Fluent
     });
 
     $code = $this->translate('/\@\bendin\b/', function($match) {
+      return "{% endin %}";
+    });
+
+    $code = $this->translate('/\@\bsection\b\((.*)\)/', function($match) {
+      return "{% in($match[1]) %}";
+    });
+
+    $code = $this->translate('/\@\bendsection\b/', function($match) {
       return "{% endin %}";
     });
 
@@ -55,7 +48,7 @@ class Blade extends Grammar implements Fluent
     $code = $this->translate('/\@\bextend\b\((.*)\)/', function($match) {
       return "{% extend($match[1]) %}";
     });
-    
+
     /**
      * if
      * elseif
