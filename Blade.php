@@ -15,6 +15,29 @@ class Blade extends Grammar implements Fluent
   public function handle()
   {
     /**
+     * @csrf
+     */
+    $code = $this->translate('/\@\bcsrf\b/', function($match) {
+      return '<input type="hidden" value="{{ $csrf_token }}" name="csrf_token"/>';
+    });
+
+    $code = $this->translate('/\{\{ \bold\b(.*) \}\}/', function($match) {
+      return '{{ old($form_old, '.$match[1].') }}';
+    });
+
+    $code = $this->translate('/\@\bvalidation\b\((.*)\)/', function($match) {
+      return '<?php if (isset($validation['.$match[1].'])) :?>';
+    });
+
+    $code = $this->translate('/\{\{ \bvalidation\b(.*) \}\}/', function($match) {
+      return '{{ % validation($validation, '.$match[1].') }}';
+    });
+
+    $code = $this->translate('/\@\bendvalidation\b/', function($match) {
+      return "<?php endif; ?>";
+    });
+
+    /**
      * templating
      */
     $code = $this->translate('/\@\bin\b\((.*)\)/', function($match) {
